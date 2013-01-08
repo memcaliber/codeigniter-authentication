@@ -3,7 +3,7 @@
 class Authentication
 {
 	/**
-	 * The logged in user object
+	 * The logged in user object.
 	 */
 	protected $user;
 	
@@ -14,7 +14,11 @@ class Authentication
 
 	public function __construct()
 	{
-	
+		// Ensure the session library is loaded.
+		$this->load->library('session');
+		
+		// Load the necessary models.
+		$this->load->model('user_model', 'user');
 	}
 
 	/**
