@@ -5,12 +5,17 @@ class Authentication
 	/**
 	 * The logged in user object.
 	 */
-	protected $user;
+	protected $_user;
 	
 	/**
-	 *
+	 * The logged in user's roles.
 	 */
-	protected $roles;
+	protected $_roles;
+	
+	/**
+	 * The logged in user's permissions.
+	 */
+	protected $_permissions;
 
 	public function __construct()
 	{
@@ -19,6 +24,8 @@ class Authentication
 		
 		// Load the necessary models.
 		$this->load->model('user_model', 'user');
+		$this->load->model('role_model', 'role');
+		$this->load->model('permission_model', 'permission');
 	}
 
 	/**
